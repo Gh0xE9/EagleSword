@@ -1,0 +1,25 @@
+# EagleSword 配置模板
+# 请勿将真实 API Key / Webhook / 邮箱提交到版本库
+
+eaglesword:
+  timeout: 10
+  cookie: 
+
+api_key:
+  quake: 
+  hunter: 
+  shodan: 
+  fofa: 
+  fofa_email: 
+
+notify:
+  feishu: 
+
+risk:
+  api_response_length: 100
+  api_title_length: 10
+
+dictionary:
+  path: dict.txt
+  response_length: 100
+  response_timeout: 10
