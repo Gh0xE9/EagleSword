@@ -6,8 +6,10 @@ setlocal enabledelayedexpansion
 set PROJECT_NAME=eaglesword
 set BUILD_DIR=dist
 set MAIN_FILE=main.go
+set VERSION=EG-0.0.1
 
 echo === EagleSword Windows 构建脚本 ===
+echo 版本: %VERSION%
 echo.
 
 REM 清理旧的构建文件

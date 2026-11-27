@@ -1,6 +1,6 @@
 # Go 参数
 BINARY_NAME=eaglesword
-VERSION?=1.5.2
+VERSION?=EG-0.0.1
 BUILD_TIME=$(shell date +%FT%T%z)
 GIT_COMMIT=$(shell git rev-parse HEAD)
 GIT_BRANCH=$(shell git rev-parse --abbrev-ref HEAD)

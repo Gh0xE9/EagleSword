@@ -14,7 +14,8 @@ NC='\033[0m' # No Color
 
 # 项目信息
 PROJECT_NAME="eaglesword"
-VERSION=$(grep -E "^const VERSION" config/config.go | cut -d'"' -f2 | awk '{print $2}' || echo "1.5.2")
+VERSION=$(grep -E "^const VERSION" config/config.go | sed -E 's/.*"([^"]*)".*/\1/; s/^VERSION:[[:space:]]*//')
+VERSION=${VERSION:-EG-0.0.1}
 BUILD_DIR="dist"
 MAIN_FILE="main.go"
 

@@ -1,6 +1,6 @@
 # EagleSword
 
-面向**授权安全测试**的 Web 资产探测与漏洞扫描工具。Go 编写，单二进制运行，支持批量目标、动态页面渲染、指纹识别、SSRF / XSS 检测与结果落盘。
+面向**授权安全测试**的 Web 资产探测与漏洞扫描工具，单二进制运行，支持批量目标、动态页面渲染、指纹识别、SSRF / XSS 检测与结果落盘。
 
 > ⚠️ 本项目仅用于你拥有或已获得书面授权的目标，禁止用于任何未授权的扫描、攻击或测试。
 
@@ -143,27 +143,3 @@ git update-index --no-skip-worktree config.yaml  # 需要恢复跟踪时
 | `-h` | 显示帮助 | - |
 
 > 注意：`-x` 与 `-a` 是字符串参数，必须显式传入 `yes` 才会启用，不是布尔开关。
-
-## 目录结构
-
-```
-cmd/                命令行参数解析与扫描调度
-config/             配置加载、输出样式与通用常量
-handler/parse/      页面 / JS / 接口 / 参数 / 敏感信息解析
-handler/scanner/    资产收集、爬虫、指纹识别、HTTP 请求与并发调度
-handler/vuln/       XSS / SSRF / CORS 检测
-payload/            SSRF / XSS payload 生成
-```
-
-## 开发
-
-```bash
-go build ./...
-go vet ./...
-go test ./...
-make fmt vet test
-```
-
-## 开源协议
-
-仓库暂未附带 `LICENSE` 文件。如需明确授权范围，请在仓库中补充协议文件；在此之前请与仓库维护者确认使用权限。

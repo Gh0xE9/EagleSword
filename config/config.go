@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-const VERSION = "VERSION: 1.5.2 (Ace Mujika)"
+const VERSION = "VERSION: EG-0.0.1"
 const AUTHOR = "AUTHOR: Ace Mujika"
 
 var SsrfPoint = regexp.MustCompile(`(?i)(next|url|target|rurl|dest|destination|redir|redirect_uri|redirect_url|redirect|out|view|to|image_url|go|return|returnTo|return_to|checkout_url|continue|return_path)\s*[:=]\s*['"]?([^'"\s]+)['"]?`)
