@@ -23,3 +23,8 @@ config.local.yaml
 ssrf_results_*.txt
 xss_results_*.txt
 reports/
+
+# HTML 可视化报告（可能含目标敏感数据，禁止提交）
+eaglesword_*.html
+asset_report_*.html
+eaglesword_asset_*.html

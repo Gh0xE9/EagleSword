@@ -1,8 +1,20 @@
+<!-- ==================== LOGO PLACEHOLDER ====================
+     把 logo 图片放进 assets/（建议 assets/logo.png，宽约 220px），
+     然后取消下一行的注释即可显示：
+     <p align="center"><img src="assets/logo.png" alt="EagleSword Logo" width="220" /></p>
+     ========================================================= -->
+<p align="center">
+  <!-- LOGO GOES HERE -->
+</p>
+
 # EagleSword
 
-面向**授权安全测试**的 Web 资产探测与漏洞扫描工具，单二进制运行，支持批量目标、动态页面渲染、指纹识别、SSRF / XSS 检测与结果落盘。
+![Version](https://img.shields.io/badge/version-EG--0.0.1-blue) ![Go](https://img.shields.io/badge/Go-1.24.2%2B-00ADD8?logo=go&logoColor=white) ![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20macOS%20%7C%20Windows-2f3136)
+![Usage](https://img.shields.io/badge/usage-Authorized_Testing_Only-critical) [![Stars](https://img.shields.io/github/stars/Gh0xE9/EagleSword?style=flat&logo=github)](https://github.com/Gh0xE9/EagleSword/stargazers) [![Issues](https://img.shields.io/github/issues/Gh0xE9/EagleSword?logo=github)](https://github.com/Gh0xE9/EagleSword/issues)
 
-**一句话总结，这是一款自动化批量抓取站点API接口信息、敏感信息、URL等为一体的综合性工具，支持报告可视化报告输出**
+面向**授权安全测试**的 Web 资产探测与漏洞扫描工具，单二进制运行，支持批量目标、动态页面渲染、指纹识别、SSRF / XSS 检测与可视化报告输出。
+
+**一句话总结：自动化批量抓取站点 API 接口、敏感信息与 URL 的综合性工具，支持可视化报告输出。**
 
 > ⚠️ 本项目仅用于你拥有或已获得书面授权的目标，禁止用于任何未授权的扫描、攻击或测试。
 
@@ -16,7 +28,7 @@
 | 资产与爬虫 | 站点爬取（`-spider`）、目录递归扫描（`-r`）、指纹识别（`handler/scanner/fingerprints.json`） |
 | 漏洞检测 | SSRF（端口 / 网段 / 文件读取 / OOB 带外 / POST & JSON 参数化）、XSS（参数化 payload）、CORS 检查 |
 | 并发与代理 | 多目标并发（默认 5，上限 50）、HTTP / SOCKS5 代理、自定义 Header / Cookie |
-| 结果输出 | 控制台彩色输出；SSRF / XSS 结果保存为 `ssrf_results_*.txt`、`xss_results_*.txt` |
+| 结果输出 | 控制台彩色输出；HTML 可视化报告（单目标扫描自动打开浏览器）；SSRF / XSS 结果落盘为 `ssrf_results_*.txt`、`xss_results_*.txt` |
 | 空间引擎 | Quake / Hunter / FOFA / Shodan 配置位（需在 `config.yaml` 自行填写，可选） |
 | 可选通知 | 在 `notify.feishu` 配置 webhook（可选） |
 
@@ -43,7 +55,7 @@ bash build.sh       # 跨平台脚本，支持 all|linux|macos|windows|clean
 build.bat           # Windows
 ```
 
-`bin/`、`dist/`、`release/` 与扫描结果文件均已被 `.gitignore` 忽略。
+当前版本 `EG-0.0.1`。`make build-all` / `bash build.sh` 会在 `dist/` 下产出 Linux、macOS、Windows 的 amd64 / arm64 裸二进制（未压缩，不入库）。`bin/`、`dist/`、`release/` 与扫描结果文件均已被 `.gitignore` 忽略。
 
 ## 配置
 
@@ -138,6 +150,18 @@ git update-index --no-skip-worktree config.yaml  # 需要恢复跟踪时
 | `-h` | 显示帮助 | - |
 
 > 注意：`-x` 与 `-a` 是字符串参数，必须显式传入 `yes` 才会启用，不是布尔开关。
+
+## 输出与报告
+
+扫描结果默认写入运行目录：
+
+| 文件 | 内容 |
+| --- | --- |
+| `eaglesword_<时间>_<站点>.html` | 单目标扫描的可视化报告（单目标时自动打开浏览器） |
+| `asset_report_<时间>.html` / `eaglesword_asset_<时间>.html` | 资产收集报告 |
+| `ssrf_results_<时间>.txt` / `xss_results_<时间>.txt` | 漏洞扫描结果 |
+
+> HTML 报告内含目标站点的接口、参数与响应内容，可能包含敏感数据，**请勿提交到版本库**；上述报告文件已加入 `.gitignore`。
 
 ## 免责声明
 
