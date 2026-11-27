@@ -1,11 +1,7 @@
-<!-- ==================== LOGO PLACEHOLDER ====================
-     把 logo 图片放进 assets/（建议 assets/logo.png，宽约 220px），
-     然后取消下一行的注释即可显示：
-     <p align="center"><img src="assets/logo.png" alt="EagleSword Logo" width="220" /></p>
-     ========================================================= -->
 <p align="center">
-  <!-- LOGO GOES HERE -->
+  <p align="center"><img src="assets/logo.png" alt="EagleSword Logo" /></p>
 </p>
+
 
 # EagleSword
 
@@ -17,6 +13,12 @@
 **一句话总结：自动化批量抓取站点 API 接口、敏感信息与 URL 的综合性工具，支持可视化报告输出。**
 
 > ⚠️ 本项目仅用于你拥有或已获得书面授权的目标，禁止用于任何未授权的扫描、攻击或测试。
+
+![](./assets/command.jpg)
+
+报告输出
+
+![](assets/report.jpg)
 
 ## 功能
 
@@ -169,3 +171,7 @@ git update-index --no-skip-worktree config.yaml  # 需要恢复跟踪时
 - 作者与贡献者不对任何误用、滥用、业务中断或数据损失负责。
 - 工具会向目标发起大量请求，请合理设置并发（`-t`），并谨慎使用 `-spider` / `-r`，避免对目标造成影响。
 - 任何 API Key、Webhook、Cookie、Authorization 头都属于敏感信息，请勿提交到版本库。
+
+> 该项目为历史项目，最后一次更新在 2025年9月
+
+![](./assets/old.jpg)
